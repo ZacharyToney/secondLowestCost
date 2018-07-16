@@ -17,6 +17,10 @@ class SLCSP
 		$outputArray = $this->iterateThroughAllZipsOutput($slcspArray,
 			$zipsArray,$plansArray,$outputArray);
 
+		$this->outputToModifiedCSVFile($outputArray);
+	}
+
+	private function outputToModifiedCSVFile($outputArray){
 		$fp = fopen('modifiedSLCSP.csv', 'w');
 
 		foreach ($outputArray as $fields) {
@@ -24,7 +28,6 @@ class SLCSP
 		}
 
 		fclose($fp);
-		
 	}
 
 	private function iterateThroughAllZipsOutput($slcspArray,$zipsArray,$plansArray,$outputArray){
